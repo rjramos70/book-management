@@ -1,0 +1,1 @@
+INSERT INTO BOOK(title, author, borrowed) VALUES ('Book title 1', 'Renato Ramos', true);
