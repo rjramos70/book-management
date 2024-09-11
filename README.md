@@ -9,7 +9,7 @@ http://localhost:8080/swagger-ui/index.html
 ## Prerequisites
 Ensure you have met the following requirements:
 
-- Java 21 installed
+- Java 21
 - Maven to build and run the application
 - Internet connection available
 
