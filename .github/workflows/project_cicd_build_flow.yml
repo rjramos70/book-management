@@ -15,8 +15,8 @@ on:
     branches: [ "main" ]
 
 jobs:
+  # Step 1 - build App, create Docker image and save in Docker Hub
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -40,9 +40,21 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # dockerfile: Dockerfile --> In this step the Dockerfile will provide the JAR fie to create the Docker Image
+      # dockerfile: Dockerfile --> In this step the Dockerfile will provide the JAR fie to create the Docker Image
 
+    # Step 2 - Get the image from Docker Hub, build a AWS EC2, run the image on AWS on port 8080
+#  deploy:
+#    needs: build
+#    runs-on: [ aws-ec2 ]
+#    steps:
+#      - name: Pull Image from docker hub
+#        run: sudo docker pull rjramos70/book-management:latest
+#      - name: Delete old container
+#        run: sudo docker rm -f spring-boot-app-container
+#      - name: Run Docker Image
+#        run: sudo docker run -d -p 8080:8080 --name spring-boot-app-container rjramos70/book-management
 
+    # JUST REFERENCE BELOW:
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
     #   uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
